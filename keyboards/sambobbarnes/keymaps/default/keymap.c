@@ -34,7 +34,7 @@ enum custom_keycodes {
 #define KC_ALAS LALT_T(KC_PAST)
 #define KC_CTPL LCTL_T(KC_BSLS)
 #define KC_NASP LT(_2, KC_SPC)
-#define JB_RENM C(S(KC_F6))
+#define JB_RENM S(KC_F6)
 #define JB_CLPSE C(S(KC_MINS))
 #define JB_EXPND C(S(KC_EQL))
 
