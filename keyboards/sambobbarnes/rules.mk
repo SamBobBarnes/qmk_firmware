@@ -1,3 +1,2 @@
 DEFAULT_FOLDER = sambobbarnes
-
 SPLIT_KEYBOARD = yes

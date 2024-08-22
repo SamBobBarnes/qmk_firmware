@@ -26,9 +26,7 @@ enum custom_keycodes {
     _0,
     _1,
     _2,
-    _JB,
-    JB_RENM,
-    JB_CLPSE
+    _JB
 };
 
 #define SYM_L MO(_1)
@@ -36,24 +34,9 @@ enum custom_keycodes {
 #define KC_ALAS LALT_T(KC_PAST)
 #define KC_CTPL LCTL_T(KC_BSLS)
 #define KC_NASP LT(_2, KC_SPC)
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-    case JB_RENM:
-        if (record->event.pressed) {
-            // when keycode QMKBEST is pressed
-            SEND_STRING(SS_DOWN(X_LSFT)SS_TAP(X_F6)SS_UP(X_LSFT));
-        }
-        break;
-    case JB_CLPSE:
-        if (record->event.pressed) {
-            // when keycode QMKBEST is pressed
-            SEND_STRING(SS_DOWN(X_LSFT)SS_DOWN(X_LCTL)SS_TAP(X_MINS)SS_UP(X_LCTL)SS_UP(X_LSFT));
-        }
-        break;
-    }
-    return true;
-};
+#define JB_RENM C(S(KC_F6))
+#define JB_CLPSE C(S(KC_MINS))
+#define JB_EXPND C(S(KC_EQL))
 
 // (keycodes)[https://docs.qmk.fm/keycodes]
 
@@ -105,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      JB_RENM ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,                                            XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,JB_CLPSE,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,                          XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
+     XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,                          XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,JB_EXPND,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,                          XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────
