@@ -37,7 +37,7 @@ enum custom_keycodes {
 #define JB_RENM S(KC_F6)
 #define JB_CLPSE C(S(KC_MINS))
 #define JB_EXPND C(S(KC_EQL))
-#define JB_XTRCT A(S(KC_M))
+#define JB_XTRCT C(A(KC_M))
 
 // (keycodes)[https://docs.qmk.fm/keycodes]
 
